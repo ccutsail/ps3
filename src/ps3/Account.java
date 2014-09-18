@@ -9,6 +9,7 @@ public class Account {
 	private double balance = 0;
 	public static double annualInterestRate = 0;
 	private Date dateCreated = new Date();
+
 	
 	public Account() {
 		
@@ -41,13 +42,16 @@ public class Account {
 	public Date getDate()   {
 		return dateCreated;   }
 	
-	public double withdraw_moola(double amount){
+	public double withdraw_moola(double amount) throws
+		NSFException
+		{
 		if(amount <= balance){
 			balance = balance - amount;
 		return balance;}
 		else{
-			System.out.print("Insufficient funds available.\n");
-			return balance;
+			double needs = balance - amount;
+			throw new NSFException(needs);
+			
 			
 		}
 	}
