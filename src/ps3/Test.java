@@ -19,6 +19,7 @@ public class Test {
 		}catch(NSFException amount){
 				amount.getAmount();}
 		System.out.println(Bobby.getDate());
+		System.out.println(Bobby.getBalance());
 
 		
 	}
